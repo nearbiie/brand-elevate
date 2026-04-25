@@ -202,10 +202,34 @@ footer {
 .nav-link.active {
     color: #e98257;
 }
+
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #e98257;
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
 </head>
 
 <body>
+
+<div id="progressBar"></div>
 
 <header>
     <img src="logo.png">
@@ -240,7 +264,7 @@ footer {
 
 </section>
 
-<section id="services" class="section" style="background:#f8fafc;">
+<section id="services" class="section fade-up" style="background:#f8fafc;">
 
 <h2>Our Services</h2>
 
@@ -296,7 +320,7 @@ footer {
 </div>
 
 </section>
-<section class="section" id="about" style="background:#f8fafc;">
+<section class="section fade-up" id="about" style="background:#f8fafc;">
 
 <h2>Government Recognized Startup</h2>
 
@@ -338,7 +362,7 @@ footer {
 </section>
 
 <!-- PRODUCT -->
-<section id="product" class="section">
+<section id="product" class="section fade-up">
 
 <h2>Nearbiie — Hyperlocal Discovery Platform</h2>
 
@@ -369,7 +393,7 @@ footer {
 </section>
 
 <!-- WHY US -->
-<section id="why" class="section">
+<section id="why" class="section fade-up">
 
 <h2>Why Brandelevate</h2>
 
@@ -428,7 +452,7 @@ footer {
 </section>
 
 <!-- VISION -->
-<section class="section" style="background:#fff7f3;">
+<section class="section fade-up" style="background:#fff7f3;">
 
 <h2>Our Vision</h2>
 
@@ -456,7 +480,7 @@ footer {
 
 <!-- CONTACT -->
 <!-- CONTACT -->
-<section id="contact" class="section" style="background:#f8fafc;">
+<section id="contact" class="section fade-up" style="background:#f8fafc;">
 
 <h2>Let’s Work Together</h2>
 
@@ -553,6 +577,28 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+</script>
+
+<script>
+window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / height) * 100;
+    document.getElementById("progressBar").style.width = progress + "%";
+});
+</script>
+<script>
+const faders = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+faders.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
