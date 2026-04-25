@@ -21,6 +21,47 @@
     --light: #f8fafc;
 }
 
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #e98257;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 999;
+}
+
+/* Hover effect */
+#scrollTopBtn:hover {
+    background: #cf6f45;
+    transform: translateY(-3px);
+}
+
+/* Arrow */
+#scrollTopBtn .arrow {
+    font-size: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -467,6 +508,28 @@ footer {
 <footer>
 © 2026 Brandelevate Solutions Pvt Ltd
 </footer>
+<button id="scrollTopBtn">
+    <span class="arrow">↑</span>
+</button>
 
+<script>
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "flex";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+};
+
+scrollBtn.onclick = function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
+</script>
+    
 </body>
 </html>
