@@ -4,25 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Brandelevate Solutions Pvt Ltd | Nearbiie</title>
+<title>Brandelevate Solutions | Hyperlocal Growth Platform</title>
 
-<meta name="description" content="Brandelevate Solutions Pvt Ltd builds innovative digital products like Nearbiie – a hyperlocal platform connecting businesses with nearby customers.">
-<meta name="keywords" content="Nearbiie, Hyperlocal, Branding, Digital Marketing, Bangalore Startup">
-<meta name="author" content="Brandelevate Solutions">
+<meta name="description" content="Brandelevate builds scalable hyperlocal platforms like Nearbiie, helping businesses drive real-world growth through smart discovery.">
 
 <link rel="icon" href="logo.png">
+
+<!-- LOTTIE -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <style>
 :root {
     --primary: #e98257;
     --secondary: #a8c6cf;
-    --dark: #1f2937;
+    --dark: #0f172a;
+    --light: #f8fafc;
 }
 
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    scroll-behavior: smooth;
+    color: var(--dark);
 }
 
 /* HEADER */
@@ -30,9 +32,10 @@ header {
     position: sticky;
     top: 0;
     background: white;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
+    align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     z-index: 1000;
 }
@@ -40,40 +43,56 @@ header {
 header img { height: 50px; }
 
 nav a {
-    margin-left: 20px;
+    margin-left: 25px;
     text-decoration: none;
+    font-weight: 600;
     color: var(--dark);
-    font-weight: bold;
 }
 
 /* HERO */
 .hero {
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-    animation: fadeIn 1s ease-in;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 100px 50px;
+    background: linear-gradient(135deg, #fff, #fff7f3);
 }
 
-.hero h1 { font-size: 42px; }
+.hero div { flex: 1; }
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+}
 
 .hero p {
-    font-size: 22px;
-    color: var(--secondary);
+    font-size: 20px;
+    margin-top: 15px;
+    color: #555;
 }
 
-/* SECTIONS */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* SECTION */
 .section {
-    padding: 80px 20px;
+    padding: 90px 50px;
     text-align: center;
 }
 
 .section h2 {
     color: var(--primary);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-/* CARDS */
+/* GRID */
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -82,32 +101,35 @@ nav a {
 }
 
 .card {
-    width: 280px;
-    padding: 20px;
-    border-radius: 10px;
-    background: #f9fafb;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    width: 300px;
+    padding: 25px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-.card:hover {
-    transform: translateY(-8px);
+/* SPLIT SECTION */
+.split {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
 }
 
-/* PRODUCT */
-.product {
-    max-width: 900px;
-    margin: auto;
+.split div { flex: 1; }
+
+.split img {
+    width: 100%;
+    border-radius: 12px;
 }
 
 /* CONTACT */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
 }
-
-form { flex: 1; }
 
 input, textarea {
     width: 100%;
@@ -123,38 +145,18 @@ button {
     cursor: pointer;
 }
 
-/* MAP */
-iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-}
-
 /* FOOTER */
 footer {
     background: var(--dark);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity:0; transform: translateY(20px);}
-    to {opacity:1;}
+@media(max-width:768px){
+    .hero { flex-direction: column; text-align:center; }
+    .split { flex-direction: column; }
 }
-
-/* SCROLL ANIMATION */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.8s;
-}
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 </style>
 </head>
 
@@ -163,91 +165,135 @@ footer {
 <header>
     <img src="logo.png">
     <nav>
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
+        <a href="#product">Product</a>
+        <a href="#why">Why Us</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <h1>Brandelevate Solutions Pvt Ltd</h1>
-    <p>Building Brands That Stand Out</p>
-</section>
 
-<section id="about" class="section fade">
-    <h2>About Us</h2>
+<div>
+    <h1>Driving Real-World Growth Through Hyperlocal Intelligence</h1>
+
     <p>
-        We build scalable digital products and branding solutions that help businesses grow.
-        Our focus is on innovation, hyperlocal engagement, and measurable results.
+        Brandelevate Solutions builds scalable digital platforms that connect businesses 
+        with nearby customers in real time. Our flagship product, Nearbiie, transforms how 
+        local discovery works.
     </p>
+
+    <a href="#product" class="btn">Explore Nearbiie</a>
+</div>
+
+<div>
+    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_3rwasyjy.json" background="transparent" speed="1" loop autoplay></lottie-player>
+</div>
+
 </section>
 
-<section id="products" class="section fade">
-    <h2>Our Product</h2>
+<!-- PRODUCT -->
+<section id="product" class="section">
 
-    <div class="product">
-        <h3>Nearbiie</h3>
-        <p>
-            Nearbiie is a hyperlocal discovery platform that connects users with nearby businesses,
-            deals, and services in real-time. It enables businesses to promote offers instantly
-            and helps users discover opportunities around them.
-        </p>
+<h2>Nearbiie — Hyperlocal Discovery Platform</h2>
 
-        <a href="https://nearbiie.com" target="_blank">
-            <button>Visit Nearbiie</button>
-        </a>
-    </div>
+<div class="split">
+
+<div>
+    <p>
+        Nearbiie is designed to solve a fundamental problem — discovery of relevant businesses 
+        within proximity. Traditional digital marketing lacks real-time intent and location context. 
+        Nearbiie bridges that gap.
+    </p>
+
+    <p>
+        Businesses can publish offers instantly, while users receive contextual recommendations 
+        based on where they are — not where they search.
+    </p>
+
+    <a href="https://nearbiie.com" target="_blank" class="btn">Visit Platform</a>
+</div>
+
+<div>
+    <!-- AI STYLE IMAGE -->
+    <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db">
+</div>
+
+</div>
+
 </section>
 
-<section id="contact" class="section fade">
-    <h2>Contact Us</h2>
+<!-- WHY US -->
+<section id="why" class="section">
 
-    <div class="contact-container">
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
+<h2>Why Brandelevate</h2>
 
-        <div style="flex:1;">
-            <p>Email: nearbiie@gmail.com</p>
-            <p>Phone: +91 9620585895</p>
+<div class="grid">
 
-            <iframe src="https://maps.google.com/maps?q=Bangalore&output=embed"></iframe>
-        </div>
-    </div>
+<div class="card">
+    <h3>Problem-First Approach</h3>
+    <p>We don’t build features. We solve real distribution and discovery problems.</p>
+</div>
+
+<div class="card">
+    <h3>Hyperlocal Expertise</h3>
+    <p>Focused on location-driven engagement and real-world conversions.</p>
+</div>
+
+<div class="card">
+    <h3>Scalable Architecture</h3>
+    <p>Built for performance, extensibility, and long-term growth.</p>
+</div>
+
+<div class="card">
+    <h3>Execution Speed</h3>
+    <p>Lean team delivering production-ready systems rapidly.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- VISION -->
+<section class="section">
+
+<h2>Our Vision</h2>
+
+<p style="max-width:800px;margin:auto;">
+    To become the default infrastructure for hyperlocal business discovery globally, 
+    enabling millions of businesses to connect with customers in real time.
+</p>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+
+<h2>Let’s Work Together</h2>
+
+<div class="contact-container">
+
+<form action="send.php" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Tell us about your requirement"></textarea>
+    <button type="submit">Send Message</button>
+</form>
+
+<div>
+    <p><strong>Email:</strong> nearbiie@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9620585895</p>
+
+    <iframe src="https://maps.google.com/maps?q=Bangalore&output=embed"></iframe>
+</div>
+
+</div>
+
 </section>
 
 <footer>
-    © 2026 Brandelevate Solutions Pvt Ltd
+© 2026 Brandelevate Solutions Pvt Ltd
 </footer>
-
-<script>
-/* SCROLL ANIMATION */
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-            el.classList.add('show');
-        }
-    });
-});
-
-/* FORM SUBMIT */
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const data = new FormData(this);
-
-    await fetch('send.php', {
-        method: 'POST',
-        body: data
-    });
-
-    alert("Message sent successfully!");
-});
-</script>
 
 </body>
 </html>
