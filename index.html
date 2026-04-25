@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brandelevate Solutions Pvt Ltd | Nearbiie</title>
+
+<meta name="description" content="Brandelevate Solutions Pvt Ltd builds innovative digital products like Nearbiie – a hyperlocal platform connecting businesses with nearby customers.">
+<meta name="keywords" content="Nearbiie, Hyperlocal, Branding, Digital Marketing, Bangalore Startup">
+<meta name="author" content="Brandelevate Solutions">
+
+<link rel="icon" href="logo.png">
+
+<style>
+:root {
+    --primary: #e98257;
+    --secondary: #a8c6cf;
+    --dark: #1f2937;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+header img { height: 50px; }
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.hero h1 { font-size: 42px; }
+
+.hero p {
+    font-size: 22px;
+    color: var(--secondary);
+}
+
+/* SECTIONS */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    color: var(--primary);
+    margin-bottom: 40px;
+}
+
+/* CARDS */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f9fafb;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* PRODUCT */
+.product {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* CONTACT */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+form { flex: 1; }
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+/* MAP */
+iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+/* FOOTER */
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1;}
+}
+
+/* SCROLL ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s;
+}
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png">
+    <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Brandelevate Solutions Pvt Ltd</h1>
+    <p>Building Brands That Stand Out</p>
+</section>
+
+<section id="about" class="section fade">
+    <h2>About Us</h2>
+    <p>
+        We build scalable digital products and branding solutions that help businesses grow.
+        Our focus is on innovation, hyperlocal engagement, and measurable results.
+    </p>
+</section>
+
+<section id="products" class="section fade">
+    <h2>Our Product</h2>
+
+    <div class="product">
+        <h3>Nearbiie</h3>
+        <p>
+            Nearbiie is a hyperlocal discovery platform that connects users with nearby businesses,
+            deals, and services in real-time. It enables businesses to promote offers instantly
+            and helps users discover opportunities around them.
+        </p>
+
+        <a href="https://nearbiie.com" target="_blank">
+            <button>Visit Nearbiie</button>
+        </a>
+    </div>
+</section>
+
+<section id="contact" class="section fade">
+    <h2>Contact Us</h2>
+
+    <div class="contact-container">
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+        <div style="flex:1;">
+            <p>Email: nearbiie@gmail.com</p>
+            <p>Phone: +91 9620585895</p>
+
+            <iframe src="https://maps.google.com/maps?q=Bangalore&output=embed"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Brandelevate Solutions Pvt Ltd
+</footer>
+
+<script>
+/* SCROLL ANIMATION */
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
+
+/* FORM SUBMIT */
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(this);
+
+    await fetch('send.php', {
+        method: 'POST',
+        body: data
+    });
+
+    alert("Message sent successfully!");
+});
+</script>
+
+</body>
+</html>
