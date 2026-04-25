@@ -198,6 +198,10 @@ footer {
     .hero { flex-direction: column; text-align:center; }
     .split { flex-direction: column; }
 }
+
+.nav-link.active {
+    color: #e98257;
+}
 </style>
 </head>
 
@@ -206,14 +210,12 @@ footer {
 <header>
     <img src="logo.png">
     <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#product">Products</a>
-    <a href="#why">Why Us</a>
-    <a href="#about">About</a>
-    <a href="#contact" style="background:#e98257; color:white; padding:8px 15px; border-radius:5px;">
-        Contact
-    </a>
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#product" class="nav-link">Products</a>
+    <a href="#why" class="nav-link">Why Us</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" style="background:#e98257; color:white; padding:8px 15px; border-radius:5px;">Contact</a>
 </nav>
 </header>
 
@@ -530,6 +532,27 @@ scrollBtn.onclick = function () {
     });
 };
 </script>
-    
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
+</script>
 </body>
 </html>
